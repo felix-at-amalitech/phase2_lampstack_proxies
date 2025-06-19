@@ -1,0 +1,14 @@
+[Unit]
+Description=LAMP Setup Service
+After=network.target httpd.service
+Requires=httpd.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/lamp-setup.sh
+RemainAfterExit=yes
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
